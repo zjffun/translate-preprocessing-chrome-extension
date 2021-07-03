@@ -12,7 +12,7 @@ Preprocess the content that will be translated using
 
 ## Usage
 
-Then this extension can help you:
+This extension can help you:
 
 1. Listen Chrome translate page;
 2. Keep content that does not need to be translated.
