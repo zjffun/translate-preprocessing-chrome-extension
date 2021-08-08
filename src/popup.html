@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>translate-preprocessing-chrome-extension</title>
+    <style>
+      .container {
+        width: 350px;
+        line-height: 1.5;
+      }
+
+      .subcheckbox {
+        padding-left: 1.25em;
+      }
+
+      input[type="checkbox"] {
+        height: 1em;
+        margin: 0;
+        margin-right: 0.25em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <fieldset>
+        <legend>Config</legend>
+        <label>
+          <input type="checkbox" name="enable-preprocessing" checked />Enable
+          page translate preprocessing
+        </label>
+        <div class="subcheckbox">
+          <label>
+            <input
+              type="checkbox"
+              name="enable-preprocessing-code"
+              checked
+            />Enable preprocessing code
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Debug</legend>
+        <label>
+          <input type="checkbox" name="debug-mode" />Enable debug mode
+        </label>
+
+        <div>
+          <button id="preprocessing-page">Preprocess</button>
+        </div>
+        <div>
+          <button id="highlight-result">Highlight</button>
+          <span style="background: aqua">&lt;pre&gt;</span>
+          <span style="background: violet">&lt;code&gt;</span>
+          <span style="background: yellow">[translate="no"]</span>
+        </div>
+      </fieldset>
+    </div>
+    <script src="./popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,309 @@
+<dl>
+  <dt class="hdlist1" id="Documentation/git-add.txt-ltpathspecgt82308203">
+    <a class="anchor" href="#Documentation/git-add.txt-ltpathspecgt82308203"></a
+    >&lt;pathspec&gt;…​
+  </dt>
+  <dd>
+    <p>
+      Files to add content from. Fileglobs (e.g. <code>*.c</code>) can be given
+      to add all matching files. Also a leading directory name (e.g.
+      <code>dir</code> to add <code>dir/file1</code> and <code>dir/file2</code>)
+      can be given to update the index to match the current state of the
+      directory as a whole (e.g. specifying <code>dir</code> will record not
+      just a file <code>dir/file1</code> modified in the working tree, a file
+      <code>dir/file2</code> added to the working tree, but also a file
+      <code>dir/file3</code> removed from the working tree). Note that older
+      versions of Git used to ignore removed files; use
+      <code>--no-all</code> option if you want to add modified or new files but
+      ignore removed ones.
+    </p>
+    <div class="paragraph">
+      <p>
+        For more details about the &lt;pathspec&gt; syntax, see the
+        <em>pathspec</em> entry in
+        <a href="/docs/gitglossary">gitglossary[7]</a>.
+      </p>
+    </div>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt--n">
+    <a class="anchor" href="#Documentation/git-add.txt--n"></a>-n
+  </dt>
+  <dt class="hdlist1" id="Documentation/git-add.txt---dry-run">
+    <a class="anchor" href="#Documentation/git-add.txt---dry-run"></a>--dry-run
+  </dt>
+  <dd>
+    <p>
+      Don’t actually add the file(s), just show if they exist and/or will be
+      ignored.
+    </p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt--v">
+    <a class="anchor" href="#Documentation/git-add.txt--v"></a>-v
+  </dt>
+  <dt class="hdlist1" id="Documentation/git-add.txt---verbose">
+    <a class="anchor" href="#Documentation/git-add.txt---verbose"></a>--verbose
+  </dt>
+  <dd>
+    <p>Be verbose.</p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt--f">
+    <a class="anchor" href="#Documentation/git-add.txt--f"></a>-f
+  </dt>
+  <dt class="hdlist1" id="Documentation/git-add.txt---force">
+    <a class="anchor" href="#Documentation/git-add.txt---force"></a>--force
+  </dt>
+  <dd>
+    <p>Allow adding otherwise ignored files.</p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt--i">
+    <a class="anchor" href="#Documentation/git-add.txt--i"></a>-i
+  </dt>
+  <dt class="hdlist1" id="Documentation/git-add.txt---interactive">
+    <a class="anchor" href="#Documentation/git-add.txt---interactive"></a
+    >--interactive
+  </dt>
+  <dd>
+    <p>
+      Add modified contents in the working tree interactively to the index.
+      Optional path arguments may be supplied to limit operation to a subset of
+      the working tree. See “Interactive mode” for details.
+    </p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt--p">
+    <a class="anchor" href="#Documentation/git-add.txt--p"></a>-p
+  </dt>
+  <dt class="hdlist1" id="Documentation/git-add.txt---patch">
+    <a class="anchor" href="#Documentation/git-add.txt---patch"></a>--patch
+  </dt>
+  <dd>
+    <p>
+      Interactively choose hunks of patch between the index and the work tree
+      and add them to the index. This gives the user a chance to review the
+      difference before adding modified contents to the index.
+    </p>
+    <div class="paragraph">
+      <p>
+        This effectively runs <code>add --interactive</code>, but bypasses the
+        initial command menu and directly jumps to the
+        <code>patch</code> subcommand. See “Interactive mode” for details.
+      </p>
+    </div>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt--e">
+    <a class="anchor" href="#Documentation/git-add.txt--e"></a>-e
+  </dt>
+  <dt class="hdlist1" id="Documentation/git-add.txt---edit">
+    <a class="anchor" href="#Documentation/git-add.txt---edit"></a>--edit
+  </dt>
+  <dd>
+    <p>
+      Open the diff vs. the index in an editor and let the user edit it. After
+      the editor was closed, adjust the hunk headers and apply the patch to the
+      index.
+    </p>
+    <div class="paragraph">
+      <p>
+        The intent of this option is to pick and choose lines of the patch to
+        apply, or even to modify the contents of lines to be staged. This can be
+        quicker and more flexible than using the interactive hunk selector.
+        However, it is easy to confuse oneself and create a patch that does not
+        apply to the index. See EDITING PATCHES below.
+      </p>
+    </div>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt--u">
+    <a class="anchor" href="#Documentation/git-add.txt--u"></a>-u
+  </dt>
+  <dt class="hdlist1" id="Documentation/git-add.txt---update">
+    <a class="anchor" href="#Documentation/git-add.txt---update"></a>--update
+  </dt>
+  <dd>
+    <p>
+      Update the index just where it already has an entry matching
+      &lt;pathspec&gt;. This removes as well as modifies index entries to match
+      the working tree, but adds no new files.
+    </p>
+    <div class="paragraph">
+      <p>
+        If no &lt;pathspec&gt; is given when <code>-u</code> option is used, all
+        tracked files in the entire working tree are updated (old versions of
+        Git used to limit the update to the current directory and its
+        subdirectories).
+      </p>
+    </div>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt--A">
+    <a class="anchor" href="#Documentation/git-add.txt--A"></a>-A
+  </dt>
+  <dt class="hdlist1" id="Documentation/git-add.txt---all">
+    <a class="anchor" href="#Documentation/git-add.txt---all"></a>--all
+  </dt>
+  <dt class="hdlist1" id="Documentation/git-add.txt---no-ignore-removal">
+    <a class="anchor" href="#Documentation/git-add.txt---no-ignore-removal"></a
+    >--no-ignore-removal
+  </dt>
+  <dd>
+    <p>
+      Update the index not only where the working tree has a file matching
+      &lt;pathspec&gt; but also where the index already has an entry. This adds,
+      modifies, and removes index entries to match the working tree.
+    </p>
+    <div class="paragraph">
+      <p>
+        If no &lt;pathspec&gt; is given when <code>-A</code> option is used, all
+        files in the entire working tree are updated (old versions of Git used
+        to limit the update to the current directory and its subdirectories).
+      </p>
+    </div>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt---no-all">
+    <a class="anchor" href="#Documentation/git-add.txt---no-all"></a>--no-all
+  </dt>
+  <dt class="hdlist1" id="Documentation/git-add.txt---ignore-removal">
+    <a class="anchor" href="#Documentation/git-add.txt---ignore-removal"></a
+    >--ignore-removal
+  </dt>
+  <dd>
+    <p>
+      Update the index by adding new files that are unknown to the index and
+      files modified in the working tree, but ignore files that have been
+      removed from the working tree. This option is a no-op when no
+      &lt;pathspec&gt; is used.
+    </p>
+    <div class="paragraph">
+      <p>
+        This option is primarily to help users who are used to older versions of
+        Git, whose "git add &lt;pathspec&gt;…​" was a synonym for "git add
+        --no-all &lt;pathspec&gt;…​", i.e. ignored removed files.
+      </p>
+    </div>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt--N">
+    <a class="anchor" href="#Documentation/git-add.txt--N"></a>-N
+  </dt>
+  <dt class="hdlist1" id="Documentation/git-add.txt---intent-to-add">
+    <a class="anchor" href="#Documentation/git-add.txt---intent-to-add"></a
+    >--intent-to-add
+  </dt>
+  <dd>
+    <p>
+      Record only the fact that the path will be added later. An entry for the
+      path is placed in the index with no content. This is useful for, among
+      other things, showing the unstaged content of such files with
+      <code>git diff</code> and committing them with <code>git commit -a</code>.
+    </p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt---refresh">
+    <a class="anchor" href="#Documentation/git-add.txt---refresh"></a>--refresh
+  </dt>
+  <dd>
+    <p>
+      Don’t add the file(s), but only refresh their stat() information in the
+      index.
+    </p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt---ignore-errors">
+    <a class="anchor" href="#Documentation/git-add.txt---ignore-errors"></a
+    >--ignore-errors
+  </dt>
+  <dd>
+    <p>
+      If some files could not be added because of errors indexing them, do not
+      abort the operation, but continue adding the others. The command shall
+      still exit with non-zero status. The configuration variable
+      <code>add.ignoreErrors</code> can be set to true to make this the default
+      behaviour.
+    </p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt---ignore-missing">
+    <a class="anchor" href="#Documentation/git-add.txt---ignore-missing"></a
+    >--ignore-missing
+  </dt>
+  <dd>
+    <p>
+      This option can only be used together with --dry-run. By using this option
+      the user can check if any of the given files would be ignored, no matter
+      if they are already present in the work tree or not.
+    </p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt---no-warn-embedded-repo">
+    <a
+      class="anchor"
+      href="#Documentation/git-add.txt---no-warn-embedded-repo"
+    ></a
+    >--no-warn-embedded-repo
+  </dt>
+  <dd>
+    <p>
+      By default, <code>git add</code> will warn when adding an embedded
+      repository to the index without using <code>git submodule add</code> to
+      create an entry in <code>.gitmodules</code>. This option will suppress the
+      warning (e.g., if you are manually performing operations on submodules).
+    </p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt---renormalize">
+    <a class="anchor" href="#Documentation/git-add.txt---renormalize"></a
+    >--renormalize
+  </dt>
+  <dd>
+    <p>
+      Apply the "clean" process freshly to all tracked files to forcibly add
+      them again to the index. This is useful after changing
+      <code>core.autocrlf</code> configuration or the
+      <code>text</code> attribute in order to correct files added with wrong
+      CRLF/LF line endings. This option implies <code>-u</code>.
+    </p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt---chmod-x">
+    <a class="anchor" href="#Documentation/git-add.txt---chmod-x"></a
+    >--chmod=(+|-)x
+  </dt>
+  <dd>
+    <p>
+      Override the executable bit of the added files. The executable bit is only
+      changed in the index, the files on disk are left unchanged.
+    </p>
+  </dd>
+  <dt
+    class="hdlist1"
+    id="Documentation/git-add.txt---pathspec-from-fileltfilegt"
+  >
+    <a
+      class="anchor"
+      href="#Documentation/git-add.txt---pathspec-from-fileltfilegt"
+    ></a
+    >--pathspec-from-file=&lt;file&gt;
+  </dt>
+  <dd>
+    <p>
+      Pathspec is passed in <code>&lt;file&gt;</code> instead of commandline
+      args. If <code>&lt;file&gt;</code> is exactly <code>-</code> then standard
+      input is used. Pathspec elements are separated by LF or CR/LF. Pathspec
+      elements can be quoted as explained for the configuration variable
+      <code>core.quotePath</code> (see
+      <a href="/docs/git-config">git-config[1]</a>). See also
+      <code>--pathspec-file-nul</code> and global
+      <code>--literal-pathspecs</code>.
+    </p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt---pathspec-file-nul">
+    <a class="anchor" href="#Documentation/git-add.txt---pathspec-file-nul"></a
+    >--pathspec-file-nul
+  </dt>
+  <dd>
+    <p>
+      Only meaningful with <code>--pathspec-from-file</code>. Pathspec elements
+      are separated with NUL character and all other characters are taken
+      literally (including newlines and quotes).
+    </p>
+  </dd>
+  <dt class="hdlist1" id="Documentation/git-add.txt---">
+    <a class="anchor" href="#Documentation/git-add.txt---"></a>--
+  </dt>
+  <dd>
+    <p>
+      This option can be used to separate command-line options from the list of
+      files, (useful when filenames might be mistaken for command-line options).
+    </p>
+  </dd>
+</dl>

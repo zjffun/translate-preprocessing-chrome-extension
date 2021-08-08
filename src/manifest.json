@@ -7,11 +7,12 @@
   "action": {
     "default_icon": {
       "128": "images/icon128.png"
-    }
+    },
+    "default_popup": "popup.html"
   },
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["scripting", "webRequest"],
+  "permissions": ["scripting", "webRequest", "storage"],
   "host_permissions": ["<all_urls>"]
 }

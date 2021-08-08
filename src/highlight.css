@@ -1,0 +1,11 @@
+pre {
+  background: aqua !important;
+}
+
+code {
+  background: violet !important;
+}
+
+[translate="no"] {
+  background: yellow !important;
+}
