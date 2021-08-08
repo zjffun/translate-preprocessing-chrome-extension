@@ -1,6 +1,5 @@
 .DS_store
 yarn.lock
-package.zip
 
 node_modules
 dist
