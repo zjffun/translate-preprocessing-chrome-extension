@@ -1,19 +1,5 @@
-const words = ["e.g", "i.e"];
+import { modulOperations } from "./language-detection.js";
 
-export default function (str) {
-  const _str = str
-    .trim()
-    .replace(/^[(“"]*/, "")
-    .replace(/[)”";:,.?!]*$/, "");
-
-  // number
-  if (/^-?[0-9][0-9,\.]*$/.test(_str)) {
-    return false;
-  }
-
-  if (words.includes(_str)) {
-    return false;
-  }
-
-  return /[^a-zA-z’'\/]/.test(_str);
+export default async function (str) {
+  return await modulOperations.runModel(str);
 }

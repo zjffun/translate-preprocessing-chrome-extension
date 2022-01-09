@@ -58,7 +58,8 @@ export default function recursivePreprocessNode(node) {
 
     contents.forEach((content, i) => {
       const subcontents = content.split("\n");
-      subcontents.forEach((c, j) => {
+      subcontents.forEach(async (c, j) => {
+        console.log(c, await isCode(c));
         if (isCode(c)) {
           subcontents[j] = `<font translate="no">${escape(c)}</font>`;
         }

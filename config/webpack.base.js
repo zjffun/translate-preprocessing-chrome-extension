@@ -26,7 +26,25 @@ module.exports = {
         { from: "src/highlight.css" },
         { from: "src/images", to: "images" },
         { from: "src/_locales", to: "_locales" },
+        {
+          from: "node_modules/@vscode/vscode-languagedetection",
+          to: "@vscode/vscode-languagedetection",
+        },
       ],
     }),
   ],
+  resolve: {
+    fallback: {
+      util: false,
+      path: false,
+      fs: false,
+      crypto: false,
+      zlib: false,
+      https: false,
+      url: false,
+      stream: false,
+      http: false,
+      encoding: false,
+    },
+  },
 };
